@@ -201,7 +201,7 @@ ctoken_result_fork(MuInterfaceToken* _token, const MuTestResult* summary)
 
     ctoken_free_fork(token);
     uipc_close(ipc_handle);
-    exit(0);
+    _Exit(0);
 
     pthread_mutex_unlock(&token->lock);
 }
@@ -924,7 +924,7 @@ cloader_run_fork(MuTest* test, MuLogCallback cb, void* data, MuLogLevel max_leve
         close(sockets[1]);
 
         /* Exit (although it's unlikely we'll get here) */
-        exit(0);
+        _Exit(0);
     }
     else
     {
